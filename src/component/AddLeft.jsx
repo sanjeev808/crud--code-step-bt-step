@@ -6,12 +6,13 @@ export default function AddLeft() {
   const [email, setEmail] = useState("");
   const [gender, setGender] = useState("")
   const [status, setStatus] = useState("")
+  
 
 
   function getFormData(e) {
     console.log(name, email, gender, status);
     let putValues = { name, email, gender, status }
-    // e.preventDefault();
+    e.preventDefault();
     fetch("http://localhost:3333/users", {
       method: 'POST',
       headers: {
@@ -22,10 +23,13 @@ export default function AddLeft() {
     }).then((result) => {
       result.json().then((resp) => {
         console.log("resp", resp)
+        
       })
     })
   }
-
+ function handler(e){
+   e.preventDefault();
+ }
 
   return (
     <div className='formData'>
@@ -59,7 +63,7 @@ export default function AddLeft() {
           </label>
         </div>
         <div>
-          <input type="submit" />
+          <input type="submit" onClick={(e)=>handler(e)} />
         </div>
         
       </form>

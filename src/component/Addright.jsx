@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "../App.css";
 import { useEffect } from "react";
 import axios from "axios";
+import updateUser from "./UpdateUser"
 
 export default function Addright() {
   const [data,setData] = useState([])
